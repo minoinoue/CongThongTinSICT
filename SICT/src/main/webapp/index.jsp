@@ -143,22 +143,40 @@
         }
 
         /* News Section Header */
-        .news-header {
-            text-align: center;
-            padding: 20px 0;
-            background-color: #003366;
-            color: white;
-            margin: 30px auto;
-            max-width: 1200px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        }
+.news-header {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-        .news-header h1 {
-            font-size: 2.5em;
-            margin: 0;
-            font-weight: bold;
-        }
+.news-header h4 {
+    color: #003087;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.news-header ul {
+    list-style: none;
+    padding: 0;
+}
+
+.news-header ul li {
+    margin-bottom: 10px;
+}
+
+.news-header ul li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.95em;
+}
+
+.news-header ul li a:hover {
+    color: #003087;
+    text-decoration: underline;
+}
+
+
 
         .news-item {
             display: flex;
@@ -238,6 +256,17 @@
             color: #003087;
             text-decoration: underline;
         }
+        
+        .news-header h1 a {
+	    color: #007bff; /* Màu xanh dương */
+	    text-decoration: none;
+		}
+		
+		.recent-news h4 {
+		    color: #003087;
+		    font-size: 1.5em; /* Tăng kích thước chữ Thông báo */
+		    margin-bottom: 15px;
+		}
 
         /* Footer */
         .footer {
@@ -430,17 +459,19 @@
         <img class="slide" src="<%= request.getContextPath() %>/images/ufi2235.jpg" alt="Ảnh 3">
     </div>
 
-    <div class="news-header">
-        <h1>SICT News</h1>
-    </div>
     <div class="container">
-        <div class="row">
-            <!-- Main News List -->
-            <div class="col-md-8">
+    <div class="row">
+        <!-- PHẦN SICT News (TRÁI) -->
+        <div class="col-md-8">
+            <div class="news-header">
+                <h1>
+                    <a href="TinTuc.jsp" style="text-decoration: none; color: inherit;">SICT News</a>
+                </h1>
+
                 <%
                     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     try (Connection conn = DatabaseConnection.getConnection()) {
-                        String sql = "SELECT TOP 10 MaTinTuc, TieuDeTinTuc, TrichDanTin, NgayCapNhat, UrlAnh FROM TinTuc ORDER BY NgayCapNhat DESC";
+                        String sql = "SELECT TOP 10 MaTinTuc, TieuDeTinTuc, TrichDanTin, NgayCapNhat, UrlAnh FROM TinTuc";
                         PreparedStatement stmt = conn.prepareStatement(sql);
                         ResultSet rs = stmt.executeQuery();
                         while (rs.next()) {
@@ -472,34 +503,37 @@
                     }
                 %>
             </div>
-            <!-- Recent News Sidebar -->
-            <div class="col-md-4">
-                <div class="recent-news">
-                    <h4>Tin Tức Gần Đây</h4>
-                    <ul>
-                        <%
-                            try (Connection conn = DatabaseConnection.getConnection()) {
-                                String sql = "SELECT TOP 5 MaTinTuc, TieuDeTinTuc FROM TinTuc ORDER BY NgayCapNhat DESC";
-                                PreparedStatement stmt = conn.prepareStatement(sql);
-                                ResultSet rs = stmt.executeQuery();
-                                while (rs.next()) {
-                                    int maTinTuc = rs.getInt("MaTinTuc");
-                                    String tieuDe = rs.getString("TieuDeTinTuc");
-                                    String slug = tieuDe.toLowerCase().replaceAll("\\s+", "-").replaceAll("[^a-z0-9-]", "");
-                        %>
-                        <li><a href="tin-tuc/<%= slug %>/<%= maTinTuc %>"><%= tieuDe %></a></li>
-                        <%
-                                }
-                            } catch (SQLException e) {
-                                e.printStackTrace();
-                                out.println("<p class='text-danger'>Lỗi khi tải tin tức gần đây: " + e.getMessage() + "</p>");
+        </div>
+
+        <!-- PHẦN Thông báo (PHẢI) -->
+        <div class="col-md-4">
+            <div class="recent-news">
+                <h4>Thông báo</h4>
+                <ul>
+                    <%
+                        try (Connection conn = DatabaseConnection.getConnection()) {
+                            String sql = "SELECT TOP 5 MaTinTuc, TieuDeTinTuc FROM TinTuc WHERE MaTheLoai = 11 ORDER BY NgayCapNhat DESC";
+                            PreparedStatement stmt = conn.prepareStatement(sql);
+                            ResultSet rs = stmt.executeQuery();
+                            while (rs.next()) {
+                                int maTinTuc = rs.getInt("MaTinTuc");
+                                String tieuDe = rs.getString("TieuDeTinTuc");
+                                String slug = tieuDe.toLowerCase().replaceAll("\\s+", "-").replaceAll("[^a-z0-9-]", "");
+                    %>
+                    <li><a href="tin-tuc/<%= slug %>/<%= maTinTuc %>"><%= tieuDe %></a></li>
+                    <%
                             }
-                        %>
-                    </ul>
-                </div>
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                            out.println("<p class='text-danger'>Lỗi khi tải tin tức gần đây: " + e.getMessage() + "</p>");
+                        }
+                    %>
+                </ul>
             </div>
         </div>
     </div>
+</div>
+
 
     <footer class="footer">
         <div class="footer-container">
