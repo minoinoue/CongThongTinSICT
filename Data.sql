@@ -17,7 +17,7 @@ VALUES
         N'Câu lạc bộ Truyền thông FIT Media thuộc Trường Công nghệ thông tin và Truyền thông (FIT) được thành lập với mục tiêu thúc đẩy các hoạt động truyền thông, quảng bá hình ảnh nhà trường, và tổ chức các sự kiện văn hóa, học thuật. CLB hoạt động trong các lĩnh vực như sản xuất nội dung truyền thông, quay dựng video, thiết kế đồ họa, và quản lý các kênh truyền thông xã hội. Tham gia FIT Media, sinh viên có cơ hội phát triển kỹ năng sáng tạo, làm việc nhóm, và xây dựng mạng lưới quan hệ.',
         GETDATE(),
         'https://example.com/fit-media-logo.jpg',
-        1,
+        15,
         1
     ),
     (
@@ -27,7 +27,7 @@ VALUES
         N'CLB HEC được thành lập với mục đích mang bộ môn Esports đến gần hơn với sinh viên Trường Công nghệ thông tin và Truyền thông nói riêng và trường Đại học Công nghiệp nói chung. Phòng máy Esports Training Room của HEC được trang bị đầy đủ thiết bị thi đấu phục vụ cho các giải đấu esports chuyên nghiệp.',
         GETDATE(),
         'https://sict.haui.edu.vn/media/77/t77821.jpg',
-        1,
+        15,
         1
     );
 	GO	
