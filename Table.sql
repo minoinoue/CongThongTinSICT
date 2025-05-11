@@ -106,3 +106,18 @@ CREATE TABLE CauLacBo (
     CONSTRAINT FK_CauLacBo_TheLoai FOREIGN KEY (MaTheLoai) REFERENCES TheLoai(MaTheLoai),
     CONSTRAINT FK_CauLacBo_Admin FOREIGN KEY (MaThanhVien) REFERENCES Admin(AdminID)
 );
+
+-- Table: GuongSangSV
+CREATE TABLE GuongSangSV (
+    MaGuongSang INT PRIMARY KEY, -- Unique identifier for the outstanding student
+    TenSinhVien NVARCHAR(255) NOT NULL, -- Student name
+    MoTaNgan NVARCHAR(MAX), -- Short description/summary
+    NoiDung NVARCHAR(MAX), -- Full content/description
+    NgayCapNhat DATETIME, -- Last updated date
+    UrlAnh VARCHAR(100), -- Image URL
+    MaTheLoai INT, -- Foreign key to TheLoai (category)
+    MaThanhVien INT, -- Foreign key to Admin (creator/updater)
+    CONSTRAINT FK_GuongSangSV_TheLoai FOREIGN KEY (MaTheLoai) REFERENCES TheLoai(MaTheLoai),
+    CONSTRAINT FK_GuongSangSV_Admin FOREIGN KEY (MaThanhVien) REFERENCES Admin(AdminID)
+);
+GO
