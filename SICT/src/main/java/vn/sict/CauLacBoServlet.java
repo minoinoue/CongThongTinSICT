@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import vn.connection.DatabaseConnection;
 
-@WebServlet("/tin-tuc/*")
-public class TinTucServlet extends HttpServlet {
+@WebServlet("/cau-lac-bo/*")
+public class CauLacBoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
@@ -28,48 +28,48 @@ public class TinTucServlet extends HttpServlet {
         if (pathInfo != null && !pathInfo.isEmpty()) {
             try {
                 String[] parts = pathInfo.split("/");
-                id = Integer.parseInt(parts[parts.length - 1]); // Lấy ID từ phần cuối
+                id = Integer.parseInt(parts[parts.length - 1]); // Get ID from the last part
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                request.setAttribute("error", "ID tin tức không hợp lệ");
-                request.getRequestDispatcher("/TinTuc.jsp").forward(request, response);
+                request.setAttribute("error", "ID câu lạc bộ không hợp lệ");
+                request.getRequestDispatcher("/CauLacBo.jsp").forward(request, response);
                 return;
             }
         } else {
-            request.setAttribute("error", "ID tin tức không được cung cấp");
-            request.getRequestDispatcher("/TinTuc.jsp").forward(request, response);
+            request.setAttribute("error", "ID câu lạc bộ không được cung cấp");
+            request.getRequestDispatcher("/CauLacBo.jsp").forward(request, response);
             return;
         }
 
-        String tieuDe = "";
-        String trichDanTin = "";
-        String noiDungTin = "";
+        String tenCauLacBo = "";
+        String moTaNgan = "";
+        String noiDung = "";
         String ngayCapNhat = "";
         String urlAnh = "";
 
         try (Connection conn = DatabaseConnection.getConnection()) {
-            String sql = "SELECT TieuDeTinTuc, TrichDanTin, NoiDungTin, NgayCapNhat, UrlAnh FROM TinTuc WHERE MaTinTuc = ?";
+            String sql = "SELECT TenCauLacBo, MoTaNgan, NoiDung, NgayCapNhat, UrlAnh FROM CauLacBo WHERE MaCauLacBo = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                tieuDe = rs.getString("TieuDeTinTuc");
-                trichDanTin = rs.getString("TrichDanTin");
-                noiDungTin = rs.getString("NoiDungTin");
+                tenCauLacBo = rs.getString("TenCauLacBo");
+                moTaNgan = rs.getString("MoTaNgan");
+                noiDung = rs.getString("NoiDung");
                 ngayCapNhat = rs.getTimestamp("NgayCapNhat") != null ? rs.getTimestamp("NgayCapNhat").toString() : "";
                 urlAnh = rs.getString("UrlAnh");
             } else {
-                request.setAttribute("error", "Bài viết không được tìm thấy");
+                request.setAttribute("error", "Câu lạc bộ không được tìm thấy");
             }
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("error", "Lỗi cơ sở dữ liệu: " + e.getMessage());
         }
 
-        request.setAttribute("tieuDe", tieuDe);
-        request.setAttribute("trichDanTin", trichDanTin);
-        request.setAttribute("noiDungTin", noiDungTin);
+        request.setAttribute("tenCauLacBo", tenCauLacBo);
+        request.setAttribute("moTaNgan", moTaNgan);
+        request.setAttribute("noiDung", noiDung);
         request.setAttribute("ngayCapNhat", ngayCapNhat);
         request.setAttribute("urlAnh", urlAnh);
-        request.getRequestDispatcher("/TinTuc.jsp").forward(request, response);
+        request.getRequestDispatcher("/XemCauLacBo.jsp").forward(request, response);
     }
 }
