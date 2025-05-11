@@ -123,3 +123,27 @@ INSERT INTO VideoClip (MaVideo, TenVideo, Url, NgayCapNhat)
 VALUES
     (1, N'Video giới thiệu', 'https://www.youtube.com/watch?v=mpIyV4xFf2o', '2025-03-10 08:00:00');
 GO
+
+INSERT INTO GuongSangSV (MaGuongSang, TenSinhVien, MoTaNgan, NoiDung, NgayCapNhat, UrlAnh, MaTheLoai, MaThanhVien)
+VALUES 
+    (
+        1,
+        N'Nguyễn Văn An', 
+        N'Sinh viên xuất sắc với thành tích học tập và nghiên cứu khoa học.',
+        N'Nguyễn Văn An là sinh viên năm cuối Trường Công nghệ thông tin và Truyền thông (FIT), Đại học Công nghiệp Hà Nội. An đã đạt giải Nhất cuộc thi nghiên cứu khoa học sinh viên cấp quốc gia năm 2024 với dự án về trí tuệ nhân tạo. Ngoài ra, An còn tích cực tham gia các hoạt động tình nguyện và là thành viên năng động của Câu lạc bộ Truyền thông FIT Media.', -- NoiDung
+        GETDATE(),
+        'https://sict.haui.edu.vn/media/80/t80123.jpg', 
+        16, 
+        1
+    ),
+    (
+        2, 
+        N'Trần Thị Bình', 
+        N'Nữ sinh viên tiêu biểu với nhiều giải thưởng trong các cuộc thi công nghệ.',
+        N'Trần Thị Bình là sinh viên Trường Công nghệ thông tin và Truyền thông (FIT), nổi bật với thành tích giành giải Nhì cuộc thi lập trình quốc tế ACM-ICPC 2024. Bình cũng là trưởng nhóm dự án phát triển ứng dụng hỗ trợ học tập, được triển khai tại nhiều trường đại học. Với tinh thần học hỏi và cống hiến, Bình là nguồn cảm hứng cho nhiều sinh viên khác.', -- NoiDung
+        GETDATE(),
+        'https://sict.haui.edu.vn/media/81/t81124.jpg',
+        16, 
+        1
+    );
+GO
