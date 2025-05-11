@@ -93,3 +93,16 @@ CREATE TABLE VideoClip (
     NgayCapNhat DATETIME
 );
 GO
+
+CREATE TABLE CauLacBo (
+    MaCauLacBo INT PRIMARY KEY, 
+    TenCauLacBo NVARCHAR(255) NOT NULL, 
+    MoTaNgan NVARCHAR(MAX), 
+    NoiDung NVARCHAR(MAX),
+    NgayCapNhat DATETIME,
+    UrlAnh VARCHAR(100), 
+    MaTheLoai INT, 
+    MaThanhVien INT, 
+    CONSTRAINT FK_CauLacBo_TheLoai FOREIGN KEY (MaTheLoai) REFERENCES TheLoai(MaTheLoai),
+    CONSTRAINT FK_CauLacBo_Admin FOREIGN KEY (MaThanhVien) REFERENCES Admin(AdminID)
+);
