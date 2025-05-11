@@ -13,9 +13,9 @@ public class DBConnect {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
 			// Thông tin kết nối SQL Server
-			String url = "jdbc:sqlserver://LAPTOP-FF3J5PG5:1433;databaseName=SICT_HAUI;encrypt=true;trustServerCertificate=true";
+			String url = "jdbc:sqlserver://localhost:1433;databaseName=SICT_HAUI;encrypt=true;trustServerCertificate=true";
 			String username = "sa"; // Username của SQL Server
-			String pass = "123"; // Password của SQL Server
+			String pass = "123456789"; // Password của SQL Server
 
 			// Khởi tạo kết nối
 			c = DriverManager.getConnection(url, username, pass);

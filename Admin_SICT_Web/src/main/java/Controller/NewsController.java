@@ -46,7 +46,6 @@ public class NewsController extends HttpServlet {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 
-		// Kiểm tra và khởi tạo lại kết nối nếu cần
 		if (nDB.getConnection() == null) {
 			nDB = new TinTucDAO();
 			System.out.println("Reinitialized TinTucDAO due to null connection");
@@ -58,7 +57,7 @@ public class NewsController extends HttpServlet {
 		while (attempt < maxRetries) {
 			try {
 				listN = nDB.getTinTucByPage(page, pageSize);
-				break; // Thoát nếu lấy dữ liệu thành công
+				break;
 			} catch (Exception e) {
 				attempt++;
 				System.err.println("Attempt " + attempt + " to load news failed: " + e.getMessage());
@@ -67,10 +66,9 @@ public class NewsController extends HttpServlet {
 							"Failed to load news after " + maxRetries + " attempts: " + e.getMessage());
 					break;
 				}
-				// Khởi tạo lại TinTucDAO để thử lại
 				nDB = new TinTucDAO();
 				try {
-					Thread.sleep(2000); // Đợi 2 giây trước khi thử lại
+					Thread.sleep(2000); 
 				} catch (InterruptedException ie) {
 					System.err.println("Retry interrupted: " + ie.getMessage());
 				}

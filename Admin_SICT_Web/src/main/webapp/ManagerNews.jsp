@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>News Management</title>
+    <title>Quản lý tin tức</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -85,20 +85,20 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>News</b></h2>
+                        <h2>Quản lý <b>Tin tức</b></h2>
                     </div>
                     <div class="col-sm-6">
                         <a href="#addNewsModal" class="btn btn-success" data-toggle="modal">
-                            <i class="material-icons"></i> <span>Add New News</span>
+                            <i class="material-icons"></i> <span>Thêm tin tức mới</span>
                         </a>
                         <a href="login" class="btn btn-secondary">
-                            <i class="material-icons"></i> <span>Log out</span>
+                            <i class="material-icons"></i> <span>Đăng xuất</span>
                         </a>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6" style="margin-top: 10px">
-                        <input type="text" id="searchBar" class="form-control" placeholder="Search by title...">
+                        <input type="text" id="searchBar" class="form-control" placeholder="Tìm kiếm tin tức bất kỳ...">
                     </div>
                 </div>
             </div>
@@ -109,18 +109,18 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Title</th>
-                        <th>Image</th>
-                        <th>Excerpt</th>
-                        <th>Content</th>
-                        <th>Update Date</th>
-                        <th>Views</th>
+                        <th>Tiêu đề</th>
+                        <th>Ảnh</th>
+                        <th>Trích dẫn</th>
+                        <th>Nội dung</th>
+                        <th>Ngày cập nhật</th>
+                        <th>Số lượt xem</th>
                         <th>Tags</th>
-                        <th>Category ID</th>
-                        <th>Subcategory ID</th>
-                        <th>Classification ID</th>
+                        <th>Mã thể loại</th>
+                        <th>Mã thể loại tin</th>
+                        <th>Mã phân loại tin</th>
                         <th>Admin ID</th>
-                        <th>Actions</th>
+                        <th>Tính năng</th>
                     </tr>
                 </thead>
                 <tbody id="newsTableBody">
@@ -157,10 +157,10 @@
                                    data-subcategory="${o.maTheLoaiTin}" 
                                    data-classification="${o.maPhanLoaiTin}" 
                                    data-admin="${o.maThanhVien}">
-                                    <i class="material-icons" data-toggle="tooltip" title="Edit"></i>
+                                    <i class="material-icons" data-toggle="tooltip" title="Sửa"></i>
                                 </a>
                                 <a href="#deleteNewsModal" class="delete" data-toggle="modal" data-id="${o.maTinTuc}">
-                                    <i class="material-icons" data-toggle="tooltip" title="Delete"></i>
+                                    <i class="material-icons" data-toggle="tooltip" title="Xóa"></i>
                                 </a>
                             </td>
                         </tr>
@@ -168,10 +168,10 @@
                 </tbody>
             </table>
             <div class="clearfix">
-                <div class="hint-text">Showing <b>${listN.size()}</b> out of <b>${totalNews}</b> entries</div>
+                <div class="hint-text">Hiển thị <b>${listN.size()}</b> trên tổng số <b>${totalNews}</b> mục</div>
                 <ul class="pagination">
                     <c:if test="${currentPage > 1}">
-                        <li class="page-item"><a href="manage?page=${currentPage - 1}" class="page-link">Previous</a></li>
+                        <li class="page-item"><a href="manage?page=${currentPage - 1}" class="page-link">Trước</a></li>
                     </c:if>
                     <c:forEach begin="1" end="${totalPages}" var="i">
                         <li class="page-item ${currentPage == i ? 'active' : ''}">
@@ -179,7 +179,7 @@
                         </li>
                     </c:forEach>
                     <c:if test="${currentPage < totalPages}">
-                        <li class="page-item"><a href="manage?page=${currentPage + 1}" class="page-link">Next</a></li>
+                        <li class="page-item"><a href="manage?page=${currentPage + 1}" class="page-link">Sau</a></li>
                     </c:if>
                 </ul>
             </div>
@@ -192,7 +192,7 @@
             <div class="modal-content">
                 <form action="manageadd" method="post">
                     <div class="modal-header">
-                        <h4 class="modal-title">Add News</h4>
+                        <h4 class="modal-title">Thêm tin tức</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
@@ -200,23 +200,23 @@
                             <div class="alert alert-danger">${error}</div>
                         </c:if>
                         <div class="form-group">
-                            <label>Title</label>
+                            <label>Tiêu đề</label>
                             <input name="title" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Image</label>
+                            <label>Ảnh</label>
                             <input name="image" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Excerpt</label>
+                            <label>Trích dẫn</label>
                             <textarea name="excerpt" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Content</label>
+                            <label>Nội dung</label>
                             <textarea name="content" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Views</label>
+                            <label>Số lượt xem</label>
                             <input name="views" type="number" class="form-control" value="0">
                         </div>
                         <div class="form-group">
@@ -224,25 +224,25 @@
                             <input name="tags" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Category ID (MaTheLoai)</label>
+                            <label>Mã thể loại</label>
                             <input name="category" type="number" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Subcategory ID (MaTheLoaiTin)</label>
+                            <label>Mã thể loại tin</label>
                             <input name="subcategory" type="number" class="form-control" value="0">
                         </div>
                         <div class="form-group">
-                            <label>Classification ID (MaPhanLoaiTin)</label>
+                            <label>Mã phân loại tin</label>
                             <input name="classification" type="number" class="form-control" value="0">
                         </div>
                         <div class="form-group">
-                            <label>Admin ID (MaThanhVien)</label>
+                            <label>Admin ID</label>
                             <input name="adminId" type="number" class="form-control" value="1">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-success" value="Add">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                        <input type="submit" class="btn btn-success" value="Tạo">
                     </div>
                 </form>
             </div>
@@ -255,7 +255,7 @@
             <div class="modal-content">
                 <form action="manageedit" method="post">
                     <div class="modal-header">
-                        <h4 class="modal-title">Edit News</h4>
+                        <h4 class="modal-title">Chỉnh sửa tin tức</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
@@ -264,23 +264,23 @@
                         </c:if>
                         <input type="hidden" name="id">
                         <div class="form-group">
-                            <label>Title</label>
+                            <label>Tiêu đề</label>
                             <input type="text" name="title" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Image</label>
+                            <label>Ảnh</label>
                             <input type="text" name="image" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Excerpt</label>
+                            <label>Trích dẫn</label>
                             <textarea name="excerpt" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Content</label>
+                            <label>Nội dung</label>
                             <textarea name="content" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Views</label>
+                            <label>Số lượt xem</label>
                             <input name="views" type="number" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -288,25 +288,25 @@
                             <input name="tags" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Category ID (MaTheLoai)</label>
+                            <label>Mã thể loại</label>
                             <input name="category" type="number" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Subcategory ID (MaTheLoaiTin)</label>
+                            <label>Mã thể loại tin</label>
                             <input name="subcategory" type="number" class="form-control" value="0">
                         </div>
                         <div class="form-group">
-                            <label>Classification ID (MaPhanLoaiTin)</label>
+                            <label>Mã phân loại tin</label>
                             <input name="classification" type="number" class="form-control" value="0">
                         </div>
                         <div class="form-group">
-                            <label>Admin ID (MaThanhVien)</label>
+                            <label>Admin ID</label>
                             <input name="adminId" type="number" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-info" value="Save">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                        <input type="submit" class="btn btn-info" value="Lưu">
                     </div>
                 </form>
             </div>
@@ -320,16 +320,16 @@
                 <form action="managedelete" method="get">
                     <input type="hidden" name="nID" id="deleteNewsID">
                     <div class="modal-header">
-                        <h4 class="modal-title">Delete News</h4>
+                        <h4 class="modal-title">Xóa tin tức</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to delete this news?</p>
-                        <p class="text-warning"><small>This action cannot be undone.</small></p>
+                        <p>Bạn có chắc chắn là muốn xóa tin này?</p>
+                        <p class="text-warning"><small>Hành động này không thể hoàn tác</small></p>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                        <input type="submit" class="btn btn-danger" value="Delete">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                        <input type="submit" class="btn btn-danger" value="Xóa">
                     </div>
                 </form>
             </div>
