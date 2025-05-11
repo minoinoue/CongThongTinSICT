@@ -26,11 +26,11 @@
         .slideshow-container img.slide {
             width: 100%;
             height: auto;
-            display: none; /* Hide all slides by default for JS control */
+            display: none; 
         }
 
         .slideshow-container img.slide.active {
-            display: block; /* Show active slide */
+            display: block; /
         }
 
         /* News Section Header */
@@ -276,10 +276,8 @@
             showSlide(currentSlide);
         }
 
-        // Initialize first slide
         showSlide(currentSlide);
 
-        // Auto-advance slides every 5 seconds
         setInterval(nextSlide, 5000);
     </script>
     <script src="<%= request.getContextPath() %>/script.js"></script>
