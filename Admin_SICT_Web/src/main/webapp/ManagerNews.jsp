@@ -227,27 +227,62 @@
                             <label>Thể loại</label>
                             <select name="category" class="form-control" required>
                                 <option value="" disabled selected>--------</option>
-                                <c:forEach begin="1" end="16" var="i">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
+                                <option value="1">1 - TRANG SICT</option>
+                                <option value="2">2 - TRANG HAUI</option>
+                                <option value="3">3 - GIỚI THIỆU</option>
+                                <option value="4">4 - ĐÀO TẠO</option>
+                                <option value="5">5 - TUYỂN SINH</option>
+                                <option value="6">6 - KHOA</option>
+                                <option value="7">7 - PHÒNG/TRUNG TÂM</option>
+                                <option value="8">8 - KHOA HỌC - CÔNG NGHỆ</option>
+                                <option value="9">9 - THƯ VIỆN ẢNH</option>
+                                <option value="10">10 - TIN TỨC</option>
+                                <option value="11">11 - THÔNG BÁO</option>
+                                <option value="12">12 - CHUYÊN NGÀNH ĐÀO TẠO</option>
+                                <option value="13">13 - TUYỂN DỤNG</option>
+                                <option value="14">14 - ĐÀO TẠO NGẮN HẠN</option>
+                                <option value="15">15 - CÂU LẠC BỘ</option>
+                                <option value="16">16 - GƯƠNG SÁNG SINH VIÊN</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Mã thể loại tin</label>
                             <select name="subcategory" class="form-control">
                                 <option value="0">--------</option>
-                                <c:forEach begin="1" end="24" var="i">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
+                                <option value="1">1 - THÔNG TIN CHUNG</option>
+                                <option value="2">2 - CƠ CẤU TỔ CHỨC</option>
+                                <option value="3">3 - CHIẾN LƯỢC PHÁT TRIỂN</option>
+                                <option value="4">4 - CÁN BỘ GIẢNG VIÊN</option>
+                                <option value="5">5 - CƠ SỞ VẬT CHẤT</option>
+                                <option value="6">6 - LIÊN HỆ</option>
+                                <option value="7">7 - ĐẠI HỌC</option>
+                                <option value="8">8 - SAU ĐẠI HỌC</option>
+                                <option value="9">9 - KẾ HOẠCH</option>
+                                <option value="10">10 - TIẾN ĐỘ</option>
+                                <option value="11">11 - QUY CHẾ, BIỂU MẪU</option>
+                                <option value="12">12 - ĐẠI HỌC</option>
+                                <option value="13">13 - SAU ĐẠI HỌC</option>
+                                <option value="14">14 - KHOA CÔNG NGHỆ THÔNG TIN</option>
+                                <option value="15">15 - KHOA CÔNG NGHỆ PHẦN MỀM</option>
+                                <option value="16">16 - KHOA KHOA HỌC MÁY TÍNH</option>
+                                <option value="17">17 - KHOA MẠNG MÁY TÍNH VÀ TRUYỀN THÔNG</option>
+                                <option value="18">18 - PHÒNG TỔNG HỢP</option>
+                                <option value="19">19 - TRUNG TÂM HỢP TÁC PHÁT TRIỂN</option>
+                                <option value="20">20 - TRUNG TÂM NGHIÊN CỨU CÔNG NGHỆ TIÊN TIẾN ICT</option>
+                                <option value="21">21 - CÔNG TRÌNH CÔNG BỘ</option>
+                                <option value="22">22 - ĐỀ TÀI, DỰ ÁN</option>
+                                <option value="23">23 - SINH VIÊN NCKH</option>
+                                <option value="24">24 - TIN KHCN</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Mã phân loại tin</label>
                             <select name="classification" class="form-control">
                                 <option value="0">--------</option>
-                                <c:forEach begin="1" end="4" var="i">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
+                                <option value="1">1 - TIÊU ĐIỂM</option>
+                                <option value="2">2 - CÁC BÀI ĐĂNG</option>
+                                <option value="3">3 - TAGS</option>
+                                <option value="4">4 - VIDEO GIỚI THIỆU</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -306,27 +341,62 @@
                             <label>Thể loại</label>
                             <select name="category" class="form-control" required>
                                 <option value="" disabled>Chọn thể loại</option>
-                                <c:forEach begin="1" end="16" var="i">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
+                                <option value="1">1 - TRANG SICT</option>
+                                <option value="2">2 - TRANG HAUI</option>
+                                <option value="3">3 - GIỚI THIỆU</option>
+                                <option value="4">4 - ĐÀO TẠO</option>
+                                <option value="5">5 - TUYỂN SINH</option>
+                                <option value="6">6 - KHOA</option>
+                                <option value="7">7 - PHÒNG/TRUNG TÂM</option>
+                                <option value="8">8 - KHOA HỌC - CÔNG NGHỆ</option>
+                                <option value="9">9 - THƯ VIỆN ẢNH</option>
+                                <option value="10">10 - TIN TỨC</option>
+                                <option value="11">11 - THÔNG BÁO</option>
+                                <option value="12">12 - CHUYÊN NGÀNH ĐÀO TẠO</option>
+                                <option value="13">13 - TUYỂN DỤNG</option>
+                                <option value="14">14 - ĐÀO TẠO NGẮN HẠN</option>
+                                <option value="15">15 - CÂU LẠC BỘ</option>
+                                <option value="16">16 - GƯƠNG SÁNG SINH VIÊN</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Mã thể loại tin</label>
                             <select name="subcategory" class="form-control">
                                 <option value="0">Không chọn</option>
-                                <c:forEach begin="1" end="24" var="i">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
+                                <option value="1">1 - THÔNG TIN CHUNG</option>
+                                <option value="2">2 - CƠ CẤU TỔ CHỨC</option>
+                                <option value="3">3 - CHIẾN LƯỢC PHÁT TRIỂN</option>
+                                <option value="4">4 - CÁN BỘ GIẢNG VIÊN</option>
+                                <option value="5">5 - CƠ SỞ VẬT CHẤT</option>
+                                <option value="6">6 - LIÊN HỆ</option>
+                                <option value="7">7 - ĐẠI HỌC</option>
+                                <option value="8">8 - SAU ĐẠI HỌC</option>
+                                <option value="9">9 - KẾ HOẠCH</option>
+                                <option value="10">10 - TIẾN ĐỘ</option>
+                                <option value="11">11 - QUY CHẾ, BIỂU MẪU</option>
+                                <option value="12">12 - ĐẠI HỌC</option>
+                                <option value="13">13 - SAU ĐẠI HỌC</option>
+                                <option value="14">14 - KHOA CÔNG NGHỆ THÔNG TIN</option>
+                                <option value="15">15 - KHOA CÔNG NGHỆ PHẦN MỀM</option>
+                                <option value="16">16 - KHOA KHOA HỌC MÁY TÍNH</option>
+                                <option value="17">17 - KHOA MẠNG MÁY TÍNH VÀ TRUYỀN THÔNG</option>
+                                <option value="18">18 - PHÒNG TỔNG HỢP</option>
+                                <option value="19">19 - TRUNG TÂM HỢP TÁC PHÁT TRIỂN</option>
+                                <option value="20">20 - TRUNG TÂM NGHIÊN CỨU CÔNG NGHỆ TIÊN TIẾN ICT</option>
+                                <option value="21">21 - CÔNG TRÌNH CÔNG BỘ</option>
+                                <option value="22">22 - ĐỀ TÀI, DỰ ÁN</option>
+                                <option value="23">23 - SINH VIÊN NCKH</option>
+                                <option value="24">24 - TIN KHCN</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Mã phân loại tin</label>
                             <select name="classification" class="form-control">
                                 <option value="0">Không chọn</option>
-                                <c:forEach begin="1" end="4" var="i">
-                                    <option value="${i}">${i}</option>
-                                </c:forEach>
+                                <option value="1">1 - TIÊU ĐIỂM</option>
+                                <option value="2">2 - CÁC BÀI ĐĂNG</option>
+                                <option value="3">3 - TAG</option>
+                                <option value="4">4 - VIDEO GIỚI THIỆU</option>
                             </select>
                         </div>
                         <div class="form-group">
