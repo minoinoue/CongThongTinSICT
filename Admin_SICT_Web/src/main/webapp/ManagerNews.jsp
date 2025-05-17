@@ -224,16 +224,31 @@
                             <input name="tags" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Mã thể loại</label>
-                            <input name="category" type="number" class="form-control" required>
+                            <label>Thể loại</label>
+                            <select name="category" class="form-control" required>
+                                <option value="" disabled selected>--------</option>
+                                <c:forEach begin="1" end="16" var="i">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Mã thể loại tin</label>
-                            <input name="subcategory" type="number" class="form-control" value="0">
+                            <select name="subcategory" class="form-control">
+                                <option value="0">--------</option>
+                                <c:forEach begin="1" end="24" var="i">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Mã phân loại tin</label>
-                            <input name="classification" type="number" class="form-control" value="0">
+                            <select name="classification" class="form-control">
+                                <option value="0">--------</option>
+                                <c:forEach begin="1" end="4" var="i">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Admin ID</label>
@@ -288,16 +303,31 @@
                             <input name="tags" type="text" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label>Mã thể loại</label>
-                            <input name="category" type="number" class="form-control" required>
+                            <label>Thể loại</label>
+                            <select name="category" class="form-control" required>
+                                <option value="" disabled>Chọn thể loại</option>
+                                <c:forEach begin="1" end="16" var="i">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Mã thể loại tin</label>
-                            <input name="subcategory" type="number" class="form-control" value="0">
+                            <select name="subcategory" class="form-control">
+                                <option value="0">Không chọn</option>
+                                <c:forEach begin="1" end="24" var="i">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Mã phân loại tin</label>
-                            <input name="classification" type="number" class="form-control" value="0">
+                            <select name="classification" class="form-control">
+                                <option value="0">Không chọn</option>
+                                <c:forEach begin="1" end="4" var="i">
+                                    <option value="${i}">${i}</option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Admin ID</label>
@@ -359,9 +389,9 @@
                 $('#editNewsModal textarea[name="content"]').val(content || '');
                 $('#editNewsModal input[name="views"]').val(views || 0);
                 $('#editNewsModal input[name="tags"]').val(tags || '');
-                $('#editNewsModal input[name="category"]').val(category || 0);
-                $('#editNewsModal input[name="subcategory"]').val(subcategory || 0);
-                $('#editNewsModal input[name="classification"]').val(classification || 0);
+                $('#editNewsModal select[name="category"]').val(category || '');
+                $('#editNewsModal select[name="subcategory"]').val(subcategory || 0);
+                $('#editNewsModal select[name="classification"]').val(classification || 0);
                 $('#editNewsModal input[name="adminId"]').val(admin || 0);
             });
 
